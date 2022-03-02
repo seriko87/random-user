@@ -26,8 +26,9 @@ const Dashboard = () => {
         </div>
       </nav>
       <div className="dash-content">
-        <Nav link={{ location: '/', name: 'home' }} header={activeTab} />
-
+        <div className="nav-container">
+          <Nav link={{ location: '/', name: 'home' }} header={activeTab} />
+        </div>
         <Outlet />
       </div>
     </div>

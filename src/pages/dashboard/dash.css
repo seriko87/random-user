@@ -23,7 +23,8 @@
   width: calc(100vw - 240px);
 }
 
-.line {
-  width: 100%;
-  border-bottom: 1px solid var(--font-color-main);
+.nav-container {
+  width: inherit;
+  position: relative;
+  height: 85px;
 }
