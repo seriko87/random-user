@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Monitor = () => {
-  return <div>Monitor</div>;
+  return <div></div>;
 };
 
 export default Monitor;

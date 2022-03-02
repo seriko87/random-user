@@ -56,6 +56,8 @@ html {
   color: var(--bg-color-main);
   cursor: pointer;
   font-size: 1rem;
+  text-transform: capitalize;
+  letter-spacing: 1.1px;
 }
 .btn:hover {
   opacity: 0.9;
@@ -67,4 +69,5 @@ html {
 .logo {
   font-size: 3rem;
   color: var(--font-color-main);
+  text-transform: capitalize;
 }

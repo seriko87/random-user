@@ -3,7 +3,7 @@ import './dash.css';
 import List from '../../components/list/List';
 import { menuItems } from './menuItems';
 import { Outlet } from 'react-router-dom';
-import DarkModeToggle from '../../components/darkMode/DarkModeToggle';
+import Nav from '../../components/nav/Nav';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('users');
@@ -26,9 +26,8 @@ const Dashboard = () => {
         </div>
       </nav>
       <div className="dash-content">
-        <span>
-          <DarkModeToggle />
-        </span>
+        <Nav link={{ location: '/', name: 'home' }} header={activeTab} />
+
         <Outlet />
       </div>
     </div>

@@ -19,9 +19,11 @@
 .list-wrap {
   width: 100%;
 }
+.dash-content {
+  width: calc(100vw - 240px);
+}
 
-.dash-content span {
-  position: absolute;
-  right: 5px;
-  top: 5px;
+.line {
+  width: 100%;
+  border-bottom: 1px solid var(--font-color-main);
 }

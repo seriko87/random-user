@@ -1,18 +1,14 @@
 import React from 'react';
+import Nav from '../../components/nav/Nav';
 import './home.css';
-import DarkModeToggle from '../../components/darkMode/DarkModeToggle';
-import Button from '../../components/Button';
 
 const Home = () => {
   return (
     <div className="homeContainer">
-      <nav className="main-nav">
-        <div className="logo">Friendly</div>
-        <span className="btns-wrap">
-          <Button location={'dashboard'} name={'Dashboard'} />
-          <DarkModeToggle />
-        </span>
-      </nav>
+      <Nav
+        link={{ location: 'dashboard', name: 'dashboard' }}
+        header={'Friendly'}
+      />
       <article className="welcome">Welcome to Friendly</article>
     </div>
   );
