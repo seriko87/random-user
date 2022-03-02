@@ -1,0 +1,24 @@
+.dashboard-container {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg-color-main);
+  display: flex;
+}
+
+.side-nav {
+  width: 240px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 40px;
+  background-color: rgba(128, 128, 128, 0.104);
+  height: 100%;
+}
+
+.list-wrap {
+  width: 100%;
+}
+
+.dash-content {
+}

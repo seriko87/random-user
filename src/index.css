@@ -5,9 +5,66 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  margin: 0 auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Reset */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+a {
+  /* color: var(--link-color); */
+  text-decoration: none;
+  color: inherit;
+}
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+/* colors */
+:root {
+  --font-color-main: #0d2549;
+  --bg-color-main: #fff;
+}
+
+[data-theme='dark'] {
+  --font-color-main: #f1f1f1;
+  --bg-color-main: #0d2549;
+}
+
+/* Common classes */
+
+.btn {
+  width: 110px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--font-color-main);
+  color: var(--bg-color-main);
+  cursor: pointer;
+  font-size: 1rem;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+.btn:active {
+  opacity: 1;
+}
+
+.logo {
+  font-size: 3rem;
+  color: var(--font-color-main);
 }
