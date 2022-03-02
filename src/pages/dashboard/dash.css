@@ -20,5 +20,8 @@
   width: 100%;
 }
 
-.dash-content {
+.dash-content span {
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
