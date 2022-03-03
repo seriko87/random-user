@@ -2,7 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Dashboard from './pages/dashboard/Dashboard';
-import Profile from './pages/Profile';
+import Profile from './pages/profile/Profile';
 import Users from './components/users/Users';
 import Reports from './components/Reports';
 import Sales from './components/Sales';
