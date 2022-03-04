@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import './users.css';
 import axios from 'axios';
+import { Link, Outlet } from 'react-router-dom';
 
 const Users = () => {
   const [data, setData] = useState([]);
@@ -26,8 +27,10 @@ const Users = () => {
           age: item.dob.age,
           gender: item.gender,
           location: item.location,
-          img: item.picture.medium,
+          img: item.picture.large,
           thumbnail: item.picture.thumbnail,
+          phone: item.phone,
+          mobile: item.cell,
         };
       });
       setData(newData);
@@ -67,14 +70,39 @@ const Users = () => {
     {
       field: 'thumbnail',
       headerName: 'Image',
-      width: 60,
+      width: 80,
       renderCell: (params) => {
-        return <img src={params.row.thumbnail} alt="" />;
+        return (
+          <img
+            src={params.row.thumbnail}
+            alt=""
+            style={{ borderRadius: '50%' }}
+          />
+        );
+      },
+    },
+
+    {
+      field: 'action',
+      headerName: 'Action',
+      width: 100,
+      renderCell: (params) => {
+        return (
+          <Link to={`/profile/${params.id}`} state={{ user: params.row }}>
+            <button className="btn" style={{ width: '80px' }}>
+              View
+            </button>
+          </Link>
+        );
       },
     },
   ];
 
-  console.log(data);
+  const handleRowClick = (params, event) => {
+    console.log(params);
+    console.log(event);
+  };
+
   return (
     <div className="user-container">
       <div style={{ flexGrow: 1 }}>
@@ -82,9 +110,11 @@ const Users = () => {
           <DataGrid
             rows={data}
             columns={columns}
-            rowHeight={40}
+            rowHeight={50}
             pageSize={10}
             rowsPerPageOptions={[10]}
+            onRowClick={handleRowClick}
+            getRowId={(r) => r.id}
           />
         )}
       </div>

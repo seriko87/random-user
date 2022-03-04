@@ -24,11 +24,34 @@
 
 .user-details {
   display: flex;
-  gap: 20px;
+  gap: 70px;
   width: 700px;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .user-info {
   text-align: left;
+}
+
+.user-info-title {
+  color: rgb(168, 168, 168);
+}
+
+.info-wrap {
+  list-style: none;
+  line-height: 2;
+  padding: 0;
+}
+.info-wrap li {
+  display: flex;
+  gap: 20px;
+}
+
+.info-wrap li :first-child {
+  width: 70px;
+}
+
+.user-title {
+  text-align: left;
+  text-transform: capitalize;
 }

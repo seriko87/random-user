@@ -7,6 +7,7 @@ import Users from './components/users/Users';
 import Reports from './components/Reports';
 import Sales from './components/Sales';
 import Monitor from './components/Monitor';
+import DashboardWelcome from './components/dashboardWelcome/DashboardWelcome';
 
 function App() {
   return (
@@ -14,12 +15,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="dashboard" element={<Dashboard />}>
-          <Route index path="users" element={<Users />} />
+          <Route index element={<DashboardWelcome />} />
+          <Route path="users" element={<Users />} />
           <Route path="sales" element={<Sales />} />
           <Route path="reports" element={<Monitor />} />
           <Route path="monitor" element={<Reports />} />
         </Route>
-        <Route path="profile" element={<Profile />} />
+        <Route path="profile/:userId" element={<Profile />} />
       </Routes>
     </div>
   );
