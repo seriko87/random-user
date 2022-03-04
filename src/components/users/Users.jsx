@@ -115,6 +115,7 @@ const Users = () => {
             rowsPerPageOptions={[10]}
             onRowClick={handleRowClick}
             getRowId={(r) => r.id}
+            className="datagrid"
           />
         )}
       </div>
