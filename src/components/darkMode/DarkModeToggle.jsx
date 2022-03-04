@@ -3,28 +3,29 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useState } from 'react';
 
+const setDark = () => {
+  localStorage.setItem('theme', 'dark');
+  document.documentElement.setAttribute('data-theme', 'dark');
+};
+
+const setLight = () => {
+  localStorage.setItem('theme', 'light');
+  document.documentElement.setAttribute('data-theme', 'light');
+};
+
+const storedTheme = localStorage.getItem('theme');
+
+const prefersDark =
+  window.matchMedia &&
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
+const defaultDark =
+  storedTheme === 'dark' || (storedTheme === null && prefersDark);
+if (defaultDark) {
+  setDark();
+}
+
 const DarkModeToggle = () => {
-  const [mode, setMode] = useState(true);
-  const setDark = () => {
-    localStorage.setItem('theme', 'dark');
-    document.documentElement.setAttribute('data-theme', 'dark');
-  };
-
-  const setLight = () => {
-    localStorage.setItem('theme', 'light');
-    document.documentElement.setAttribute('data-theme', 'light');
-  };
-
-  const storedTheme = localStorage.getItem('theme');
-
-  const prefersDark =
-    window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const defaultDark =
-    storedTheme === 'dark' || (storedTheme === null && prefersDark);
-  if (defaultDark) {
-    setDark();
-  }
+  const [mode, setMode] = useState(defaultDark);
 
   const toggleTheme = () => {
     if (mode) {
