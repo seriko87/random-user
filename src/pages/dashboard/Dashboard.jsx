@@ -4,9 +4,12 @@ import List from '../../components/list/List';
 import { menuItems } from './menuItems';
 import { Outlet } from 'react-router-dom';
 import Nav from '../../components/nav/Nav';
+import { useSelector } from 'react-redux';
+import { selectTab } from '../../redux/features/dashboardSlice';
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState('users');
+  const activeTab = useSelector(selectTab);
+
   return (
     <div className="dashboard-container">
       <nav className="side-nav">
@@ -15,13 +18,7 @@ const Dashboard = () => {
         </div>
         <div className="list-wrap">
           {menuItems.map((item) => {
-            return (
-              <List
-                {...item}
-                setActiveTab={setActiveTab}
-                activeTab={activeTab}
-              />
-            );
+            return <List {...item} />;
           })}
         </div>
       </nav>
