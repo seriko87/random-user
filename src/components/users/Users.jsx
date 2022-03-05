@@ -1,48 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import './users.css';
-import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { userdata } from '../../redux/features/usersSlice';
+
 import { Link, Outlet } from 'react-router-dom';
 
 const Users = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  var options = {
-    method: 'GET',
-    url: 'https://randomuser.me/api/?results=100',
-  };
-
-  const getData = async () => {
-    setLoading(true);
-    try {
-      const res = await axios(options);
-      const newData = res.data.results.map((item, index) => {
-        return {
-          id: index + 1,
-          name: item.name.first + ' ' + item.name.last,
-          username: item.login.username,
-          email: item.email,
-          dob: item.dob.date,
-          age: item.dob.age,
-          gender: item.gender,
-          location: item.location,
-          img: item.picture.large,
-          thumbnail: item.picture.thumbnail,
-          phone: item.phone,
-          mobile: item.cell,
-        };
-      });
-      setData(newData);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const data = useSelector(userdata);
 
   const columns = [
     {

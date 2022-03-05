@@ -8,6 +8,7 @@ import Reports from './components/Reports';
 import Sales from './components/Sales';
 import Monitor from './components/Monitor';
 import DashboardWelcome from './components/dashboardWelcome/DashboardWelcome';
+import { useSelector } from 'react-redux';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="dashboard" element={<Dashboard />}>
-          <Route index element={<DashboardWelcome />} />
+          {/* <Route index element={<DashboardWelcome />} /> */}
           <Route path="users" element={<Users />} />
           <Route path="sales" element={<Sales />} />
           <Route path="reports" element={<Monitor />} />
