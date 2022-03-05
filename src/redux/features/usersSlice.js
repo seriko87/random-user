@@ -5,15 +5,21 @@ export const userSlice = createSlice({
   name: 'userdata',
   initialState: {
     value: '',
+    currentUser: [],
+    prevUser: [],
   },
   reducers: {
     setData: (state, action) => {
       state.value = action.payload;
     },
+    setCurrentUser: (state, action) => {
+      state.prevUser = state.currentUser;
+      state.currentUser = action.payload;
+    },
   },
 });
 
-export const { setData } = userSlice.actions;
+export const { setData, setCurrentUser } = userSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -53,6 +59,6 @@ export const getData = (options) => async (dispatch) => {
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
-export const userdata = (state) => state.userdata.value;
+export const userdata = (state) => state.userdata;
 
 export default userSlice.reducer;

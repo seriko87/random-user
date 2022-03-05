@@ -4,8 +4,9 @@ import List from '../../components/list/List';
 import { menuItems } from './menuItems';
 import { Outlet } from 'react-router-dom';
 import Nav from '../../components/nav/Nav';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectTab } from '../../redux/features/dashboardSlice';
+import { getData } from '../../redux/features/usersSlice';
 
 const Dashboard = () => {
   const activeTab = useSelector(selectTab);
@@ -26,6 +27,7 @@ const Dashboard = () => {
         <div className="nav-container">
           <Nav link={{ location: '/', name: 'home' }} header={activeTab} />
         </div>
+
         <Outlet />
       </div>
     </div>

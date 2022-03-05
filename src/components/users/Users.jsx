@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import './users.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { userdata } from '../../redux/features/usersSlice';
-
-import { Link, Outlet } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { getData, setCurrentUser } from '../../redux/features/usersSlice';
 
 const Users = () => {
   const data = useSelector(userdata);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const columns = [
     {
@@ -54,7 +56,11 @@ const Users = () => {
       renderCell: (params) => {
         return (
           <Link to={`/profile/${params.id}`} state={{ user: params.row }}>
-            <button className="btn" style={{ width: '80px' }}>
+            <button
+              className="btn"
+              style={{ width: '80px' }}
+              onClick={() => dispatch(setCurrentUser(params.row))}
+            >
               View
             </button>
           </Link>
@@ -63,22 +69,32 @@ const Users = () => {
     },
   ];
 
-  const handleRowClick = (params, event) => {
-    console.log(params);
-    console.log(event);
+  const handleView = () => {
+    navigate(`/profile/${data.prevUser.id}`);
   };
 
   return (
     <div className="user-container">
+      <div className="btn-wrap">
+        <button className="btn" onClick={() => dispatch(getData())}>
+          Get Users
+        </button>
+        <button
+          className="btn"
+          style={{ width: '125px', fontSize: '0.9rem' }}
+          onClick={() => handleView(data.prevUser)}
+        >
+          View Previous User
+        </button>
+      </div>
       <div style={{ flexGrow: 1 }}>
-        {data && (
+        {data.value && (
           <DataGrid
-            rows={data}
+            rows={data.value}
             columns={columns}
-            rowHeight={50}
+            rowHeight={49}
             pageSize={10}
             rowsPerPageOptions={[10]}
-            onRowClick={handleRowClick}
             getRowId={(r) => r.id}
             className="datagrid"
           />

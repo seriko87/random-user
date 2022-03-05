@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../../components/nav/Nav';
 import './profile.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { userdata } from '../../redux/features/usersSlice';
 
 const Profile = () => {
   let location = useLocation();
   let navigate = useNavigate();
+  const userData = useSelector(userdata);
+  const user = userData.currentUser;
 
-  const user = location.state.user;
-  console.log(user);
   let date_param = new Date(user.dob);
   var options = {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   };
+
+  console.log(user);
 
   return (
     <div className="profile-container">

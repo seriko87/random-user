@@ -2,6 +2,8 @@
   width: 100%;
   display: flex;
   height: calc(100% - 85px);
+  flex-direction: column;
+  gap: 5px;
 }
 
 .datagrid {
