@@ -1,6 +1,6 @@
 # Random User
 
-Web app fetches data from random user api [Live demo](https://random-user-app-api.netlify.app/).
+User data web app with landing, dashboard, profile pages. [Live demo](https://random-user-app-api.netlify.app/).
 
 **Enviroment:** HTML, CSS, JavaScript, React Js, Redux, Redux-toolkit, Material UI, DataGrid, React-router, Axios
 
