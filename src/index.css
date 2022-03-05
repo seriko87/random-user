@@ -72,3 +72,11 @@ html {
   color: var(--font-color-main);
   text-transform: capitalize;
 }
+
+.dash-container {
+  width: 100%;
+  display: flex;
+  height: calc(100% - 85px);
+  flex-direction: column;
+  gap: 5px;
+}

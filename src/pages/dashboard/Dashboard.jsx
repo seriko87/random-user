@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
 import './dash.css';
 import List from '../../components/list/List';
 import { menuItems } from './menuItems';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Nav from '../../components/nav/Nav';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectTab } from '../../redux/features/dashboardSlice';
-import { getData } from '../../redux/features/usersSlice';
 
 const Dashboard = () => {
   const activeTab = useSelector(selectTab);
+  let navigate = useNavigate();
 
   return (
     <div className="dashboard-container">
       <nav className="side-nav">
-        <div className="logo" style={{ fontSize: '36px' }}>
+        <div
+          className="logo"
+          style={{ fontSize: '36px', cursor: 'pointer' }}
+          onClick={() => navigate('/dashboard', { replace: true })}
+        >
           Dashboard
         </div>
         <div className="list-wrap">

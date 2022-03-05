@@ -6,14 +6,12 @@ export const userSlice = createSlice({
   initialState: {
     value: '',
     currentUser: [],
-    prevUser: [],
   },
   reducers: {
     setData: (state, action) => {
       state.value = action.payload;
     },
     setCurrentUser: (state, action) => {
-      state.prevUser = state.currentUser;
       state.currentUser = action.payload;
     },
   },
@@ -26,11 +24,6 @@ export const { setData, setCurrentUser } = userSlice.actions;
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched
 export const getData = (options) => async (dispatch) => {
-  var options = {
-    method: 'GET',
-    url: 'https://randomuser.me/api/?results=100',
-  };
-
   try {
     const res = await axios(options);
     const newData = res.data.results.map((item, index) => {

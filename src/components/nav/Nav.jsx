@@ -8,9 +8,11 @@ const Nav = ({ link, header }) => {
     <nav className="main-nav">
       <div className="logo">{header}</div>
       <span className="btns-wrap">
-        <Link to={link.location}>
-          <button className="btn">{link.name}</button>
-        </Link>
+        {link && (
+          <Link to={link.location}>
+            <button className="btn">{link.name}</button>
+          </Link>
+        )}
         <DarkModeToggle />
       </span>
     </nav>

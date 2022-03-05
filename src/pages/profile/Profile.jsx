@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
 import Nav from '../../components/nav/Nav';
 import './profile.css';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { userdata } from '../../redux/features/usersSlice';
 
 const Profile = () => {
-  let location = useLocation();
   let navigate = useNavigate();
   const userData = useSelector(userdata);
   const user = userData.currentUser;
@@ -22,10 +20,7 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <Nav
-        link={{ location: '/dashboard', name: 'Dashboard' }}
-        header={'Profile'}
-      />
+      <Nav link={false} header={'Profile'} />
       <button className="btn" onClick={() => navigate(-1)}>
         go back
       </button>

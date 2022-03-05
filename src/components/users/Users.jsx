@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import './users.css';
 import { useSelector, useDispatch } from 'react-redux';
@@ -69,23 +68,31 @@ const Users = () => {
     },
   ];
 
-  const handleView = () => {
-    navigate(`/profile/${data.prevUser.id}`);
+  const handleView = (id) => {
+    navigate(`/profile/${id}`);
+  };
+  var options = {
+    method: 'GET',
+    url: 'https://randomuser.me/api/?results=100',
   };
 
   return (
-    <div className="user-container">
+    <div className="dash-container">
       <div className="btn-wrap">
-        <button className="btn" onClick={() => dispatch(getData())}>
+        <button className="btn" onClick={() => dispatch(getData(options))}>
           Get Users
         </button>
-        <button
-          className="btn"
-          style={{ width: '125px', fontSize: '0.9rem' }}
-          onClick={() => handleView(data.prevUser)}
-        >
-          View Previous User
-        </button>
+        {data.currentUser.length !== 0 ? (
+          <button
+            className="btn"
+            style={{ width: '125px', fontSize: '0.9rem' }}
+            onClick={() => handleView(data.currentUser.id)}
+          >
+            Recently Viewed User
+          </button>
+        ) : (
+          ''
+        )}
       </div>
       <div style={{ flexGrow: 1 }}>
         {data.value && (

@@ -7,6 +7,7 @@ import { selectTab, setActiveTab } from '../../redux/features/dashboardSlice';
 const List = ({ icon, name, id }) => {
   const activeTab = useSelector(selectTab);
   const dispatch = useDispatch();
+  console.log(id);
 
   return (
     <Link to={id}>
