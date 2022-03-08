@@ -2,6 +2,11 @@ import './darkModeToggle.css';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  darkLightMode,
+  setDarkLight,
+} from '../../redux/features/darkModeSlice';
 
 const setDark = () => {
   localStorage.setItem('theme', 'dark');
@@ -25,15 +30,16 @@ if (defaultDark) {
 }
 
 const DarkModeToggle = () => {
-  const [mode, setMode] = useState(defaultDark);
+  const mode = useSelector(darkLightMode);
+  const dispatch = useDispatch();
 
   const toggleTheme = () => {
     if (mode) {
       setLight();
-      setMode(false);
+      dispatch(setDarkLight(false));
     } else {
       setDark();
-      setMode(true);
+      dispatch(setDarkLight(true));
     }
   };
   return (

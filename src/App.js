@@ -8,7 +8,6 @@ import Reports from './components/Reports';
 import Sales from './components/Sales';
 import Monitor from './components/Monitor';
 import DashboardWelcome from './components/dashboardWelcome/DashboardWelcome';
-import { useSelector } from 'react-redux';
 
 function App() {
   return (
