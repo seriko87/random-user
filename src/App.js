@@ -18,8 +18,8 @@ function App() {
           <Route index element={<DashboardWelcome />} />
           <Route path="users" element={<Users />} />
           <Route path="sales" element={<Sales />} />
-          <Route path="reports" element={<Monitor />} />
-          <Route path="monitor" element={<Reports />} />
+          <Route path="monitor" element={<Monitor />} />
+          <Route path="reports" element={<Reports />} />
         </Route>
         <Route path="profile/:userId" element={<Profile />} />
       </Routes>

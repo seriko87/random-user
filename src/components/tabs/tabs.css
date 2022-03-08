@@ -1,0 +1,11 @@
+.tabs-container {
+  width: 40%;
+  height: 250px;
+  border-radius: 10px;
+  border: 1px solid var(--font-color-main);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}

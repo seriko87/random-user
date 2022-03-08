@@ -1,9 +1,9 @@
 import React from 'react';
-
+import ReceiptIcon from '@mui/icons-material/Receipt';
 const Sales = () => {
   return (
-    <div style={{ fontSize: '72px' }} className="dash-container">
-      Welcome to Sales
+    <div className="dash-tabs-wrap">
+      <ReceiptIcon sx={{ fontSize: 138 }} />
     </div>
   );
 };

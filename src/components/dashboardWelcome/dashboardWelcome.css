@@ -1,0 +1,8 @@
+.dash-tabs-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;
+}

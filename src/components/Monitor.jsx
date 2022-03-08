@@ -1,9 +1,10 @@
 import React from 'react';
+import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 
 const Monitor = () => {
   return (
-    <div style={{ fontSize: '72px' }} className="dash-container">
-      Welcome to Monitor
+    <div className="dash-tabs-wrap">
+      <MonitorHeartIcon sx={{ fontSize: 138 }} />
     </div>
   );
 };
