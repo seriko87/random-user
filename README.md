@@ -2,7 +2,7 @@
 
 User data web app with landing, dashboard, profile pages. [Live demo](https://random-user-app-api.netlify.app/).
 
-**Enviroment:** HTML, CSS, JavaScript, React Js, Redux, Redux-toolkit, Material UI, DataGrid, React-router, Axios
+**Enviroment:** HTML, CSS, JavaScript, React Js, Redux, Redux-toolkit, Material UI, DataGrid, React-router, Axios and Netlify
 
 #
 
