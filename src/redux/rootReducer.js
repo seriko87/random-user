@@ -1,9 +1,9 @@
-import dashboardSlice from './features/dashboardSlice';
+import dashboardReducer from './features/dashboardSlice';
 import usersSlice from './features/usersSlice';
 import darkModeSlice from './features/darkModeSlice';
 
 const rootReducer = {
-  activeTab: dashboardSlice,
+  activeTab: dashboardReducer,
   userdata: usersSlice,
   darkMode: darkModeSlice,
 };

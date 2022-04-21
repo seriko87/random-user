@@ -8,6 +8,7 @@ export const dashboardSlice = createSlice({
   reducers: {
     setActiveTab: (state, action) => {
       state.value = action.payload;
+      
     },
   },
 });
