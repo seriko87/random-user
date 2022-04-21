@@ -1,7 +1,6 @@
 import './darkModeToggle.css';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   darkLightMode,
